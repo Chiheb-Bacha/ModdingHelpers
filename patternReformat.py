@@ -2,10 +2,9 @@ while True:
     print("Enter a pattern in the '\\xAB' format")
     pattern = input()
     pattern = [b for b in pattern.split("\\x") if b]
-    print(pattern)
-    print("Enter a mask in the 'x?x' format")
+    print("Enter a mask in the 'x?x' format, or nothing if it only contains 'x's")
     mask = input()
-    if len(mask) != len(pattern):
+    if '?' in mask and len(mask) != len(pattern):
         print("Pattern and mask length don't match")
         continue
     else:
